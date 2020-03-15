@@ -20,13 +20,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
         val c = Calendar.getInstance()
         val hour = c.get(Calendar.HOUR_OF_DAY)
-        if( 2 <= hour && hour < 10 ){
-            textView.text = "おはよう"
-        }else if (10 <= hour && hour < 18){
-            textView.text = "こんにちは"
-        }else{
-            textView.text = "こんばんは"
-        }
+        
     }
     
     override fun onClick(v: View) {
@@ -40,6 +34,13 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             this,
             TimePickerDialog.OnTimeSetListener {view, hour, minute ->
                 Log.d("UI_PARTS", "$hour:$minute")
+                if( 2 <= hour && hour < 10 ){
+                    textView.text = "おはよう"
+                }else if (10 <= hour && hour < 18){
+                    textView.text = "こんにちは"
+                }else{
+                    textView.text = "こんばんは"
+                }
             },
             13, 0, true)
         timePickerDialog.show()
